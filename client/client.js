@@ -40,3 +40,14 @@ Template.rooms.events({
     displayUI();
   }
 })
+
+// --
+HomeController = RouteController.extend({
+});
+
+RoomController = RouteController.extend({
+  // template: 'rooms',
+  run: function(){
+    console.log('hi');
+  }
+});
