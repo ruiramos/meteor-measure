@@ -59,4 +59,24 @@ MainController = RouteController.extend({
 });
 
 RoomController = RouteController.extend({
+
+  run: function(){
+    if(this.data()){
+      var usersArray = this.data().users,
+          currentUser = Meteor.user();
+
+      if(!_.contains(usersArray, currentUser)){
+        usersArray.push(currentUser)
+        Rooms.update(this.data()._id, {$set: {users: usersArray}});
+      }
+
+      this.render();
+    }
+    // var groupUsers = this.data();
+    // if(this.data())
+    //   var users = this.data().users;
+
+    // console.log(groupUsers, Meteor.user());
+
+  }
 });

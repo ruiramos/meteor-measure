@@ -8,6 +8,7 @@ Router.map(function() {
   this.route('room', {
     path: '/room/:_id',
     controller: 'RoomController',
+    loadingTemplate: 'loading',
     data: function() { return Rooms.findOne(this.params._id); }
   });
 });

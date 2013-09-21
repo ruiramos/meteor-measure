@@ -20,6 +20,12 @@
 		</div>
 	</template>
 
+ 	<template name="logout">
+ 		<div>
+ 			<button class="logout">Logout</button>
+ 		</div>
+ 	</template>
+
  <template name="list">
  	{{#each attributes}}
  	 {{> attribute}}
@@ -51,12 +57,19 @@
 	</template>
 
 	<template name="room">
-		<p>this is the room template!</p>
-		{{ name }}
+		<p>Welcome to {{name}}!</p>
+		<p>Current users:</p>
+		{{#each users}}
+			{{> user}}
+		{{/each}}
 	</template>
 
- 	<template name="logout">
- 		<div>
- 			<button class="logout">Logout</button>
- 		</div>
- </template>
+	<template name="user">
+		<p>{{profile.name}}</p>
+	</template>
+
+	<template name="loading">
+		<p>loading data.... hang on</p>
+	</template>
+
+
