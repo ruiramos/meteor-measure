@@ -9,14 +9,15 @@
 	<template name="main">
 		{{#if currentUser}}
 			{{> rooms }}
-			{{> logout }}
 		{{else}}
 			{{>login}}
 		{{/if}}
 	</template>
 
 	<template name="login">
-		{{loginButtons}}
+		<div class="login-buttons ab-center">
+			{{loginButtons}}
+		</div>
 	</template>
 
  <template name="list">
@@ -26,17 +27,18 @@
  	<button class="submit">Submit</button>
  </template>
 
- <template name="attribute">
+<!-- possibly reuse at later point. -->
+<!--  <template name="attribute">
  	<div class="attr">
 	 	<span class="minusButton">-</span>
 	 	<span class="attr-name">{{ name }}</span>
 	  <span class="plusButton">+</span>
 	  <span class="value">{{ value }}</span>
 	</div>
- </template>
+ </template> -->
 
 	<template name="rooms">
-		<div class="rooms">
+		<div class="rooms ab-center">
 			<div>
 				<button class="createRoom">Create New Room</button>
 			</div>
@@ -44,11 +46,12 @@
 				<label>Room Name:</label><input type="text" class="roomId">
 				<button class="joinButton">Go!</button>
 			</div>
+						{{> logout }}
 		</div>
 	</template>
 
  <template name="logout">
  	<div>
- 		<button class="logout">Get me out of here!</button>
+ 		<button class="logout">Logout</button>
  	</div>
  </template>
