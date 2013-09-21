@@ -2,7 +2,7 @@ Attributes = new Meteor.Collection("attributes");
 Rooms = new Meteor.Collection("rooms");
 
 Router.map(function() {
-  this.route('home', {
+  this.route('main', {
     path: '/'
   });
   this.route('room', {

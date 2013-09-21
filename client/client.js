@@ -35,19 +35,28 @@ var displayUI = function() {
   $('.create-form').show();
 };
 
-Template.rooms.events({
-  'click button.createRoom' : function() {
+Template.createRoom.events({
+  'click button.createRoom': function() {
     displayUI();
+  },
+  'click button.createSubmit': function(){
+    var currentUser = Meteor.user();
+    var data = {
+      name: $('.roomId').val(),
+      owner: currentUser,
+      users: [currentUser]
+    };
+
+    var newRoomId = Rooms.insert(data);
+    console.log(newRoomId);
+    Router.go('room', {_id: newRoomId});
+
   }
 })
 
 // --
-HomeController = RouteController.extend({
+MainController = RouteController.extend({
 });
 
 RoomController = RouteController.extend({
-  // template: 'rooms',
-  run: function(){
-    console.log('hi');
-  }
 });
