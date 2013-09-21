@@ -60,18 +60,21 @@ RoomController = RouteController.extend({
   data: function() { return Rooms.findOne(this.params._id); },
 
   run: function() {
-      this.render();
-  },
-  show: function() {
-    var data = data;
-    if (data) {
+    var data = this.data();
+
+    if(data){
       var usersArray = data.users,
           currentUser = Meteor.user();
 
-    if (!_.contains(usersArray, currentUser)) {
-        usersArray.push(currentUser)
+      console.log(usersArray, currentUser);
+
+      if (!_.find(usersArray, function(el){ return el._id === currentUser._id})) {
+        cusersArray.push(currentUser)
         Rooms.update(data._id, {$set: {users: usersArray}});
       }
+
     }
+
+    this.render();
   }
 });
