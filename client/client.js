@@ -14,11 +14,9 @@
     'click span.minusButton' : function () {
       // template data, if any, is available in 'this'
       Attributes.update(this._id, {$inc: {value: -1}});
-      console.log(this);
     },
     'click span.plusButton' : function () {
       // template data, if any, is available in 'this'
       Attributes.update(this._id, {$inc: {value: 1}});
-      console.log(this);
     }
   });
