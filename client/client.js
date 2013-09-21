@@ -1,13 +1,3 @@
-// Template.list.events({
-//   'click button.submit' : function () {
-//     // template data, if any, is available in 'this'
-//     console.log('submit', this);
-//   }
-// })
-
-// Template.list.attributes = function () {
-//   return Attributes.find({}, {sort: {name: 1}});
-// };
 
 Template.settings.attributes = function () {
   return Attributes.find({"roomId": Session.get('roomId')});
@@ -16,12 +6,11 @@ Template.room.attributes = Template.settings.attributes;
 
 
 Template.attribute.events({
-  'click span.minusButton' : function () {
+  'click .minusButton' : function () {
     // template data, if any, is available in 'this'
     Attributes.update(this._id, {$inc: {value: -1}});
   },
-  'click span.plusButton' : function () {
-    console.log(this);
+  'click .plusButton' : function () {
     // template data, if any, is available in 'this'
     Attributes.update(this._id, {$inc: {value: 1}});
   }
@@ -61,7 +50,11 @@ Template.createRoom.events({
 
 Template.settings.events({
   'click button.addAttribute': function(){
-    Attributes.insert({"roomId": Session.get('roomId'), "name": $('.attributeName').val(), "value": 0});
+    Attributes.insert({
+      "roomId": Session.get('roomId'),
+      "name": $('.attributeName').val(),
+      "value": 0
+    });
   }
 })
 
@@ -75,7 +68,7 @@ RoomController = RouteController.extend({
   run: function() {
     var data = this.data();
 
-    if(data){
+    if (data) {
       var usersArray = data.users,
           currentUser = Meteor.user();
 
@@ -93,9 +86,7 @@ RoomController = RouteController.extend({
 SettingsController = RouteController.extend({
   data: function() { return Attributes.find({"roomId": this.params._id}) },
   run: function() {
-    console.log(this.data().fetch());
     Session.set('roomId', this.params._id);
     this.render();
   }
-
 });

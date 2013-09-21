@@ -80,3 +80,6 @@ body, html {
 	font-weight: bold;
 	font-family: sans-serif;
 }
+
+.attribute > button {
+}
