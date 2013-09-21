@@ -10,5 +10,10 @@ Router.map(function() {
     controller: 'RoomController',
     loadingTemplate: 'loading'
   });
+  this.route('settings', {
+    path: '/room/:_id/settings',
+    controller: 'SettingsController',
+    loadingTemplate: 'loading'
+  });
 });
 

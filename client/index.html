@@ -33,15 +33,20 @@
  	<button class="submit">Submit</button>
  </template>
 
-<!-- possibly reuse at later point. -->
-<!--  <template name="attribute">
- 	<div class="attr">
+ <template name="attribute">
+ 	<div class="attribute">
 	 	<span class="minusButton">-</span>
 	 	<span class="attr-name">{{ name }}</span>
 	  <span class="plusButton">+</span>
 	  <span class="value">{{ value }}</span>
 	</div>
- </template> -->
+ </template>
+
+ <template name="attributeName">
+ 	<div class="attribute">
+	 	<span class="attr-name">{{ name }}</span>
+	</div>
+ </template>
 
 	<template name="createRoom">
 		<div class="rooms ab-center">
@@ -62,6 +67,17 @@
 		{{#each users}}
 			{{> user}}
 		{{/each}}
+		{{#each attributes}}
+			{{> attribute}}
+		{{/each}}
+	</template>
+
+	<template name="settings">
+		{{#each attributes}}
+			{{> attributeName}}
+		{{/each}}
+		<input class="attributeName">
+		<button class="addAttribute">Add</button>
 	</template>
 
 	<template name="user">
