@@ -2,39 +2,61 @@
 Template.settings.attributes = function () {
   return Attributes.find({"roomId": Session.get('roomId')});
 };
+
 Template.room.attributes = Template.settings.attributes;
 
-
-Template.attribute.events({
-  'click .minusButton' : function () {
-    // template data, if any, is available in 'this'
-    Attributes.update(this._id, {$inc: {value: -1}});
-  },
-  'click .plusButton' : function () {
-    // template data, if any, is available in 'this'
-    Attributes.update(this._id, {$inc: {value: 1}});
-  }
-});
-
-Template.login.currentUser = function(){
+Template.login.currentUser = function() {
   return Meteor.user();
-}
-
-Template.logout.events({
-  'click button.logout': function(){
-    Meteor.logout();
-  }
-})
+};
 
 var displayUI = function() {
   $('.create-form').fadeIn(500);
 };
 
+
+// -- Template Events
+
+Template.room.events({
+  'click .nav-button': function() {
+    Router.go('settings', {_id: this._id});
+  }
+});
+
+Template.attribute.events({
+  'click .minusButton' : function () {
+    Attributes.update(this._id, {$inc: {value: -1}});
+  },
+  'click .plusButton' : function () {
+    Attributes.update(this._id, {$inc: {value: 1}});
+  }
+});
+
+Template.settings.events({
+  'click button.addAttribute': function(){
+    if ($('.attributeName').val().length > 0) {
+      Attributes.insert({
+        "roomId": Session.get('roomId'),
+        "name": $('.attributeName').val(),
+        "value": 0
+      });
+    }
+  },
+  'click .nav-button': function() {
+    Router.go('room', {_id: Session.get('roomId')});
+  }
+});
+
+Template.logout.events({
+  'click button.logout': function(){
+    Meteor.logout();
+  }
+});
+
 Template.createRoom.events({
   'click button.createRoom': function() {
     displayUI();
   },
-  'click button.createSubmit': function(){
+  'click button.createSubmit': function() {
     var currentUser = Meteor.user();
     var data = {
       name: $('.roomId').val(),
@@ -46,19 +68,9 @@ Template.createRoom.events({
     var newRoomId = Rooms.insert(data);
     Router.go('room', {_id: newRoomId});
   }
-})
+});
 
-Template.settings.events({
-  'click button.addAttribute': function(){
-    Attributes.insert({
-      "roomId": Session.get('roomId'),
-      "name": $('.attributeName').val(),
-      "value": 0
-    });
-  }
-})
-
-// --
+// -- View controllers
 MainController = RouteController.extend({
 });
 

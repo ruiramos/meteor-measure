@@ -26,13 +26,6 @@
  		</div>
  	</template>
 
-<!--  <template name="list">
- 	{{#each attributes}}
- 	 {{> attribute}}
- 	{{/each}}
- 	<button class="submit">Submit</button>
- </template> -->
-
  <template name="attribute">
  	<div class="attribute">
 		<button class="minusButton">-</button>
@@ -63,7 +56,7 @@
 
 	<template name="room">
 		<div class="header">
-			<h2>{{name}}!</h2>
+			<h2>{{name}}</h2>
 		</div>
 		<div class="room-container">
 			<h2>In the room:</h2>
@@ -77,16 +70,25 @@
 				{{/each}}
 			</ul>
 			</div>
+			<div class="nav-button">Go to settings.</div>
 		</div>
-		</div>
+
 	</template>
 
 	<template name="settings">
-		{{#each attributes}}
-			{{> attributeName}}
-		{{/each}}
-		<input class="attributeName">
-		<button class="addAttribute">Add</button>
+		<div class="settings">
+			<div class="list">
+			<h2>Trackables:</h2>
+			<ul>
+			{{#each attributes}}
+				<li>{{> attributeName}}</li>
+			{{/each}}
+				</ul>
+			</div>
+			<input class="attributeName">
+			<button class="addAttribute">Add trackable</button>
+			<div class="nav-button">Go to room.</div>
+		</div>
 	</template>
 
 	<template name="user">
@@ -98,5 +100,3 @@
 	<template name="loading">
 		<span>loading data.... hang on</span>
 	</template>
-
-

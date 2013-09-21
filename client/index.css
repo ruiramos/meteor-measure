@@ -4,6 +4,7 @@ body, html {
 	padding: 0;
 	margin: 0;
 	background: rgb(78, 223, 78);
+	font-family: sans-serif;
 }
 
 .create-form {
@@ -67,7 +68,6 @@ body, html {
 }
 
 .header h2 {
-	font-family: sans-serif;
 	font-size: 42px;
 	text-align: center;
 }
@@ -78,8 +78,25 @@ body, html {
 	border: 1px solid black;
 	background: white;
 	font-weight: bold;
-	font-family: sans-serif;
 }
 
-.attribute > button {
+.nav-button {
+	background: white;
+	border: 1px solid black;
+	display: inline-block;
+	padding: 5px;
+}
+
+.nav-button:hover {
+	cursor: pointer;
+}
+
+.attribute > button:hover {
+	cursor: pointer;
+}
+
+.addAttribute {
+	background: white;
+	border: 1px solid black;
+	padding: 5px;
 }
