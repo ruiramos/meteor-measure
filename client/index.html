@@ -62,14 +62,23 @@
 	</template>
 
 	<template name="room">
-		<p>Welcome to {{name}}!</p>
-		<p>Current users:</p>
-		{{#each users}}
-			{{> user}}
-		{{/each}}
-		{{#each attributes}}
-			{{> attribute}}
-		{{/each}}
+		<div class="header">
+			<h2>{{name}}!</h2>
+		</div>
+		<div class="room-container">
+			<h2>In the room:</h2>
+			{{#each users}}
+				{{> user}}
+			{{/each}}
+			<div class="list">
+			<ul>
+				{{#each attributes}}
+					<li>{{> attribute}}</li>
+				{{/each}}
+			</ul>
+			</div>
+		</div>
+		</div>
 	</template>
 
 	<template name="settings">
@@ -81,11 +90,13 @@
 	</template>
 
 	<template name="user">
-		<p>{{profile.name}}</p>
+		<div class="user">
+			<p>{{profile.name}}</p>
+		</div>
 	</template>
 
 	<template name="loading">
-		<p>loading data.... hang on</p>
+		<span>loading data.... hang on</span>
 	</template>
 
 
