@@ -3,16 +3,20 @@
 </head>
 
 <body>
-  {{> login}}
+  {{> main}}
 </body>
 
-	<template name="login">
+	<template name="main">
 		{{#if currentUser}}
 			{{> rooms }}
 			{{> logout }}
-				{{else}}
-			{{loginButtons}}
+		{{else}}
+			{{>login}}
 		{{/if}}
+	</template>
+
+	<template name="login">
+		{{loginButtons}}
 	</template>
 
  <template name="list">
