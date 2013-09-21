@@ -10,7 +10,8 @@
 
 <template name="login">
 	{{#if currentUser}}
- 		{{> rooms}}
+ 		{{> rooms }}
+ 		{{> logout }}
  	{{else}}
  		{{loginButtons}}
 	{{/if}}
@@ -33,7 +34,17 @@
  </template>
 
  <template name="rooms">
- 	<button class="createRoom">Create New Room</button>
- 	<input type="text" class="roomId">
- 	<button class="joinButton">Go!</button>
+ 	<div>
+ 		<button class="createRoom">Create New Room</button>
+ 	</div>
+ 	<div>
+ 		<input type="text" class="roomId">
+ 		<button class="joinButton">Go!</button>
+ 	</div>
+ </template>
+
+ <template name="logout">
+ 	<div>
+ 		<button class="logout">Get me out of here!</button>
+ 	</div>
  </template>

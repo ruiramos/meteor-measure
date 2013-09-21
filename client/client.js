@@ -24,3 +24,9 @@ Template.attribute.events({
 Template.login.currentUser = function(){
   return Meteor.user();
 }
+
+Template.logout.events({
+  'click button.logout': function(){
+    Meteor.logout();
+  }
+})
