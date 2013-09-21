@@ -10,16 +10,16 @@ Template.list.attributes = function () {
 };
 
 
-Template.attribute.events({
-  'click span.minusButton' : function () {
-    // template data, if any, is available in 'this'
-    Attributes.update(this._id, {$inc: {value: -1}});
-  },
-  'click span.plusButton' : function () {
-    // template data, if any, is available in 'this'
-    Attributes.update(this._id, {$inc: {value: 1}});
-  }
-});
+// Template.attribute.events({
+//   'click span.minusButton' : function () {
+//     // template data, if any, is available in 'this'
+//     Attributes.update(this._id, {$inc: {value: -1}});
+//   },
+//   'click span.plusButton' : function () {
+//     // template data, if any, is available in 'this'
+//     Attributes.update(this._id, {$inc: {value: 1}});
+//   }
+// });
 
 Template.login.currentUser = function(){
   return Meteor.user();
