@@ -1,13 +1,13 @@
-  Template.list.events({
-    'click button.submit' : function () {
-      // template data, if any, is available in 'this'
-      console.log('submit', this);
-    }
-  })
+Template.list.events({
+  'click button.submit' : function () {
+    // template data, if any, is available in 'this'
+    console.log('submit', this);
+  }
+})
 
-  Template.list.attributes = function () {
-    return Attributes.find({}, {sort: {name: 1}});
-  };
+Template.list.attributes = function () {
+  return Attributes.find({}, {sort: {name: 1}});
+};
 
 
 Template.attribute.events({
@@ -28,5 +28,15 @@ Template.login.currentUser = function(){
 Template.logout.events({
   'click button.logout': function(){
     Meteor.logout();
+  }
+})
+
+var displayUI = function() {
+  $('.create-form').show();
+};
+
+Template.rooms.events({
+  'click button.createRoom' : function() {
+    displayUI();
   }
 })
