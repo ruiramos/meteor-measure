@@ -3,7 +3,11 @@ Rooms = new Meteor.Collection("rooms");
 
 Router.map(function() {
   this.route('main', {
-    path: '/'
+    path: '/',
+    template: 'main',
+    renderTemplates: {
+      'homeTopBar': {to: 'topbar'}
+    }
   });
   this.route('room', {
     path: '/room/:_id',

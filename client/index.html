@@ -1,10 +1,15 @@
 <head>
-  <title>ometriaboard</title>
+  <title>MeterClash</title>
 </head>
 
 <body>
-	{{ yield }}
 </body>
+
+	<template name="layout">
+		<div id="topBar">{{ yield 'topbar' }}</div>
+		<div id="content">{{ yield }}</div>
+		<div id="footer">{{ yield 'footer' }}</div>
+	</template>
 
 	<template name="main">
 		{{#if currentUser}}
@@ -12,6 +17,10 @@
 		{{else}}
 			{{>login}}
 		{{/if}}
+	</template>
+
+	<template name="homeTopBar">
+		<h2>MeterClash</h2>
 	</template>
 
 	<template name="login">

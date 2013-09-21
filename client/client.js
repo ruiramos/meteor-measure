@@ -8,6 +8,9 @@
 // Template.list.attributes = function () {
 //   return Attributes.find({}, {sort: {name: 1}});
 // };
+Router.configure({
+    layout: 'layout',
+});
 
 Template.settings.attributes = function () {
   return Attributes.find({"roomId": Session.get('roomId')});
