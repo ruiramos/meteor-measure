@@ -57,6 +57,7 @@ MainController = RouteController.extend({
 });
 
 RoomController = RouteController.extend({
+  data: function() { return Rooms.findOne(this.params._id); },
 
   run: function(){
     if(this.data()){
