@@ -69,7 +69,7 @@ RoomController = RouteController.extend({
       console.log(usersArray, currentUser);
 
       if (!_.find(usersArray, function(el){ return el._id === currentUser._id})) {
-        cusersArray.push(currentUser)
+        usersArray.push(currentUser)
         Rooms.update(data._id, {$set: {users: usersArray}});
       }
 
