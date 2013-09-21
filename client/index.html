@@ -4,18 +4,22 @@
 
 <body>
   {{> login}}
-  {{> list }}
+
+
 </body>
 
 <template name="login">
- 	{{ loginButtons}}
+	{{#if currentUser}}
+ 		{{> rooms}}
+ 	{{else}}
+ 		{{loginButtons}}
+	{{/if}}
  </template>
 
  <template name="list">
  	{{#each attributes}}
  	 {{> attribute}}
  	{{/each}}
-
  	<button class="submit">Submit</button>
  </template>
 
@@ -26,4 +30,10 @@
 	  <span class="plusButton">+</span>
 	  <span class="value">{{ value }}</span>
 	</div>
+ </template>
+
+ <template name="rooms">
+ 	<button class="createRoom">Create New Room</button>
+ 	<input type="text" class="roomId">
+ 	<button class="joinButton">Go!</button>
  </template>
