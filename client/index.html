@@ -4,18 +4,16 @@
 
 <body>
   {{> login}}
-
-
 </body>
 
-<template name="login">
-	{{#if currentUser}}
- 		{{> rooms }}
- 		{{> logout }}
- 	{{else}}
- 		{{loginButtons}}
-	{{/if}}
- </template>
+	<template name="login">
+		{{#if currentUser}}
+			{{> rooms }}
+			{{> logout }}
+				{{else}}
+			{{loginButtons}}
+		{{/if}}
+	</template>
 
  <template name="list">
  	{{#each attributes}}
@@ -33,15 +31,17 @@
 	</div>
  </template>
 
- <template name="rooms">
- 	<div>
- 		<button class="createRoom">Create New Room</button>
- 	</div>
- 	<div>
- 		<input type="text" class="roomId">
- 		<button class="joinButton">Go!</button>
- 	</div>
- </template>
+	<template name="rooms">
+		<div class="rooms">
+			<div>
+				<button class="createRoom">Create New Room</button>
+			</div>
+			<div class="create-form">
+				<label>Room Name:</label><input type="text" class="roomId">
+				<button class="joinButton">Go!</button>
+			</div>
+		</div>
+	</template>
 
  <template name="logout">
  	<div>
