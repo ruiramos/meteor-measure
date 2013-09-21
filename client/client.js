@@ -32,7 +32,7 @@ Template.logout.events({
 })
 
 var displayUI = function() {
-  $('.create-form').show();
+  $('.create-form').fadeIn(500);
 };
 
 Template.createRoom.events({
@@ -48,9 +48,7 @@ Template.createRoom.events({
     };
 
     var newRoomId = Rooms.insert(data);
-    console.log(newRoomId);
     Router.go('room', {_id: newRoomId});
-
   }
 })
 
